@@ -1,0 +1,78 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+#webgi-canvas-container {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+}
+#webgi-canvas {
+  width: 100%;
+  height: 100%;
+}
+
+.ui {
+  position: absolute;
+  top: 100px;
+  right: 50px;
+  background-color: white;
+  padding: 15px;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  font-family: sans-serif;
+}
+button {
+  margin: 5px;
+}
+
+.title {
+  font-size: 15px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.variations {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.objectVariation {
+  border: 1px solid black;
+  padding: 6px;
+  border-radius: 8px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.objectVariation:hover {
+  background-color: black;
+  color: white;
+}
+
+.objectActive {
+  background-color: black;
+  color: white;
+}
+.materialActive {
+  border: 2px solid black !important;
+}
+
+.material {
+  padding: 15px;
+  border-radius: 100%;
+  border: 2px solid rgb(211, 211, 211);
+  cursor: pointer;
+}
+
+.material:hover {
+  border: 2px solid black;
+}

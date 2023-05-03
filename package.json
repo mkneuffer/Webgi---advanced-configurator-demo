@@ -1,0 +1,17 @@
+{
+  "name": "variationdemo1",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "typescript": "^4.9.3",
+    "vite": "^4.2.0",
+    "webgi": "https://dist.pixotronics.com/webgi/runtime/bundle-0.7.45.tgz",
+    "@types/webgi": "https://dist.pixotronics.com/webgi/runtime/bundle-types-0.7.45.tgz"
+  }
+}

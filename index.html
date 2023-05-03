@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/logo.png" />
+    <link rel="stylesheet" href="./src/styles.css" />
+    <title title="webgi">WebGi</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + TS</title>
+    <style></style>
+  </head>
+  <body>
+    <div id="webgi-canvas-container">
+      <canvas id="webgi-canvas"></canvas>
+    </div>
+    <div class="ui">
+      <div>
+        <p class="title">Basket</p>
+        <div class="variations">
+          <div class="objectVariation objectActive" data-category="Basket" data-index="0">Cushion Halo</div>
+          <div class="objectVariation" data-category="Basket" data-index="3">Pear Halo</div>
+          <div class="objectVariation" data-category="Basket" data-index="2">Solitair</div>
+          <div class="objectVariation" data-category="Basket" data-index="1">Empty</div>
+        </div>
+      <div>
+        <p class="title">Ring</p>
+        <div class="variations">
+          <div class="objectVariation objectActive" data-category="Ring" data-index="0">Alliance</div>
+          <div class="objectVariation" data-category="Ring" data-index="1">Baguette</div>
+          <div class="objectVariation" data-category="Ring" data-index="2">Pave</div>
+          <div class="objectVariation" data-category="Ring" data-index="3">Pave Side</div>
+          <div class="objectVariation" data-category="Ring" data-index="4">Soli</div>
+        </div>
+      </div>
+      <div>
+        <p class="title">Diamond</p>
+        <div class="variations">
+          <div class="material " data-category="Diamond" data-index0="2" data-index1="1" data-index2="0" data-bg="0.jpg" style="background-color: #2100db;"></div>
+          <div class="material" data-category="Diamond" data-index0="1" data-index1="0" data-index2="1" data-bg="1.jpg" style="background-color: #049c0b;"></div>
+          <div class="material materialActive" data-category="Diamond" data-index0="0" data-index1="2" data-index2="2" data-bg="2.jpg" style="background-color: #db000d;"></div>
+        </div>
+      </div>
+      <div>
+        <p class="title">Metal</p>
+        <div class="variations">
+          <div class="material" data-category="Metal" data-index="0" style="background-color: #aa6e61;"></div>
+          <div class="material materialActive" data-category="Metal" data-index="1" style="background-color: white;"></div>
+          <div class="material" data-category="Metal" data-index="2" style="background-color: #c2882b;"></div>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
