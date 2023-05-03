@@ -6,6 +6,7 @@ import {
   VariationConfiguratorPlugin,
   ITexture,
   sRGBEncoding,
+  GroundPlugin,
 } from "webgi";
 async function setupViewer() {
   // Initialize the viewer
@@ -13,19 +14,24 @@ async function setupViewer() {
     canvas: document.getElementById("webgi-canvas") as HTMLCanvasElement,
   });
   viewer.renderer.displayCanvasScaling = Math.min(1, window.devicePixelRatio);
-  viewer.renderEnabled = false;
 
   const manager = await viewer.addPlugin(AssetManagerPlugin);
   await viewer.addPlugin(AssetManagerBasicPopupPlugin);
   const config = await viewer.addPlugin(VariationConfiguratorPlugin);
   await addBasePlugins(viewer);
+  const ground = viewer.getPlugin(GroundPlugin)!;
+
+  //stop auto ground shadows baking and disable rendering
+  viewer.renderEnabled = false;
+  ground.autoBakeShadows = false;
 
   // Load scene
   await manager.addFromPath("https://3dassetsmaan.s3.ap-south-1.amazonaws.com/VariationConfiguratorTutorials/3/box.glb");
-
-  viewer.renderEnabled = true;
-
   manager.addFromPath("preset.json");
+
+  // Bake shadows once after model loaded and enable rendering
+  ground.bakeShadows();
+  viewer.renderEnabled = true;
 
   viewer.renderer.refreshPipeline();
 
