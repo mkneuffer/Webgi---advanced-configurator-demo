@@ -7,6 +7,7 @@ import {
   ITexture,
   sRGBEncoding,
   GroundPlugin,
+  CameraViewPlugin,
 } from "webgi";
 async function setupViewer() {
   // Initialize the viewer
@@ -90,6 +91,30 @@ async function setupViewer() {
         const index = parseInt(el.getAttribute("data-index")!);
         config.applyVariation(Metal, index, "materials");
       }
+    });
+  });
+
+  //camera views
+  const cameraView = viewer.getPlugin(CameraViewPlugin)!;
+
+  document.querySelectorAll("#view0").forEach((el) => {
+    el.addEventListener("click", () => {
+      cameraView.animateToView(cameraView.camViews[0], 1000);
+    });
+  });
+  document.querySelectorAll("#view1").forEach((el) => {
+    el.addEventListener("click", () => {
+      cameraView.animateToView(cameraView.camViews[1], 1000);
+    });
+  });
+  document.querySelectorAll("#view2").forEach((el) => {
+    el.addEventListener("click", () => {
+      cameraView.animateToView(cameraView.camViews[2], 1000);
+    });
+  });
+  document.querySelectorAll("#view3").forEach((el) => {
+    el.addEventListener("click", () => {
+      cameraView.animateToView(cameraView.camViews[3], 1000);
     });
   });
 }
