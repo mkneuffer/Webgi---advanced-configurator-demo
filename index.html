@@ -49,21 +49,19 @@
             flex-direction: row;
             gap: 10px;
         }
-        .buttonWrapper {
-            position: relative;
-            display: inline-block;
-        }
-        .optionButton {
-            display: block;
+        .objectVariation, .material {
+            border: 1px solid black;
             padding: 6px;
             border-radius: 8px;
             font-size: 13px;
             cursor: pointer;
             transition: all 0.2s ease-in-out;
-            border: 1px solid black;
-            background-color: white;
         }
-        .optionButton:hover {
+        .objectVariation:hover, .material:hover {
+            background-color: black;
+            color: white;
+        }
+        .objectActive, .materialActive {
             background-color: black;
             color: white;
         }
@@ -76,16 +74,22 @@
         .view.active {
             display: block;
         }
-        .backButton {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            font-size: 12px;
-            cursor: pointer;
+        .custom-radio {
+            display: none;
         }
-        .submitWrapper {
-            display: flex;
-            justify-content: flex-end;
+        .custom-radio-label {
+            cursor: pointer;
+            display: block;
+            padding: 6px;
+            border: 1px solid black;
+            border-radius: 8px;
+            margin: 5px;
+        }
+        .custom-radio-label:hover {
+            background-color: black;
+            color: white;
+        }
+        .submit-button {
             margin-top: auto;
         }
     </style>
@@ -95,30 +99,14 @@
         <form id="selectionForm" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSeMhFzKsPSO2Kh-ObQrKtt-G51xOpaIMa0aFGeZWCNibkE3_Q/formResponse" method="POST">
             <div id="viewBasket" class="view active">
                 <p class="title">Basket</p>
-                <button class="backButton" onclick="prevView()">Back</button>
                 <div class="variations">
-                    <div class="buttonWrapper">
-                        <input type="radio" id="basket0" name="basket" value="Cushion Halo" style="display: none;">
-                        <label class="optionButton" for="basket0" onclick="nextView()">Cushion Halo</label>
-                    </div>
-                    <!-- Add other options similarly -->
+                    <input type="radio" id="basket0" name="basket" value="Cushion Halo" class="custom-radio" checked>
+                    <label for="basket0" class="custom-radio-label" onclick="nextView(this)">Cushion Halo</label>
+                    <!-- Other options -->
                 </div>
             </div>
-            <!-- Add other views similarly -->
-            <div id="viewMetal" class="view">
-                <p class="title">Metal</p>
-                <button class="backButton" onclick="prevView()">Back</button>
-                <div class="variations">
-                    <div class="buttonWrapper">
-                        <input type="radio" id="metal0" name="metal" value="Metal1" style="display: none;">
-                        <label class="optionButton" for="metal0" onclick="nextView()">Metal1</label>
-                    </div>
-                    <!-- Add other options similarly -->
-                </div>
-                <div class="submitWrapper hidden">
-                    <button type="button" onclick="submitForm()">Submit</button>
-                </div>
-            </div>
+            <!-- Other views -->
+            <button type="button" class="submit-button hidden" onclick="submitForm()">Submit</button>
             <input type="hidden" id="combinedAnswers" name="entry.1386704910" value="">
         </form>
     </div>
@@ -127,32 +115,19 @@
     </div>
     <script type="module" src="/src/main.ts"></script>
     <script>
-        function nextView() {
+        function nextView(label) {
             const activeView = document.querySelector('.view.active');
             const nextView = activeView.nextElementSibling;
             if (nextView && nextView.classList.contains('view')) {
                 activeView.classList.remove('active');
                 nextView.classList.add('active');
+            } else {
+                // Show submit button after last selection option
+                document.querySelector('.submit-button').classList.remove('hidden');
             }
-            if (!nextView.nextElementSibling || !nextView.nextElementSibling.classList.contains('view')) {
-                const submitWrapper = nextView.querySelector('.submitWrapper');
-                if (submitWrapper) {
-                    submitWrapper.classList.remove('hidden');
-                }
-            }
-        }
-
-        function prevView() {
-            const activeView = document.querySelector('.view.active');
-            const prevView = activeView.previousElementSibling;
-            if (prevView && prevView.classList.contains('view')) {
-                activeView.classList.remove('active');
-                prevView.classList.add('active');
-            }
-            const submitWrapper = document.querySelector('.submitWrapper');
-            if (submitWrapper) {
-                submitWrapper.classList.add('hidden');
-            }
+            // Simulate radio button selection
+            const radioInput = label.previousElementSibling;
+            radioInput.checked = true;
         }
 
         function submitForm() {
