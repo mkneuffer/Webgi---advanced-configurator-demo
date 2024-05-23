@@ -8,91 +8,81 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite + TS</title>
     <style>
-body,
-html {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-}
-#webgi-canvas-container {
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-}
-#webgi-canvas {
-  width: 100%;
-  height: 100%;
-}
-
-.ui {
-  position: absolute;
-  top: 100px;
-  right: 50px;
-  background-color: white;
-  padding: 15px;
-  border-radius: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  display: flex;
-  flex-direction: column;
-  font-family: sans-serif;
-}
-button {
-  margin: 5px;
-}
-
-.title {
-  font-size: 15px;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.variations {
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-}
-
-.objectVariation {
-  border: 1px solid black;
-  padding: 6px;
-  border-radius: 8px;
-  font-size: 13px;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
-}
-
-.objectVariation:hover {
-  background-color: black;
-  color: white;
-}
-
-.objectActive {
-  background-color: black;
-  color: white;
-}
-.materialActive {
-  border: 2px solid black !important;
-}
-
-.material {
-  padding: 15px;
-  border-radius: 100%;
-  border: 2px solid rgb(211, 211, 211);
-  cursor: pointer;
-}
-
-.material:hover {
-  border: 2px solid black;
-}
-      
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+      }
+      #webgi-canvas-container {
+        width: 30vw;
+        height: 100vh;
+        position: fixed;
+        right: 0;
+        top: 0;
+      }
+      #webgi-canvas {
+        width: 100%;
+        height: 100%;
+      }
+      .ui {
+        width: 70vw;
+        height: 100vh;
+        background-color: white;
+        padding: 15px;
+        border-radius: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        display: flex;
+        flex-direction: column;
+        font-family: sans-serif;
+      }
+      button {
+        margin: 5px;
+      }
+      .title {
+        font-size: 15px;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+      .variations {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+      }
+      .objectVariation {
+        border: 1px solid black;
+        padding: 6px;
+        border-radius: 8px;
+        font-size: 13px;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+      }
+      .objectVariation:hover {
+        background-color: black;
+        color: white;
+      }
+      .objectActive {
+        background-color: black;
+        color: white;
+      }
+      .materialActive {
+        border: 2px solid black !important;
+      }
+      .material {
+        padding: 15px;
+        border-radius: 100%;
+        border: 2px solid rgb(211, 211, 211);
+        cursor: pointer;
+      }
+      .material:hover {
+        border: 2px solid black;
+      }
     </style>
   </head>
   <body>
-    <div id="webgi-canvas-container">
-      <canvas id="webgi-canvas"></canvas>
-    </div>
     <div class="ui">
       <div>
         <p class="title">Basket</p>
@@ -102,6 +92,7 @@ button {
           <div id="view1" class="objectVariation" data-category="Basket" data-index="2">Pear Halo</div>
           <div id="view1" class="objectVariation" data-category="Basket" data-index="1">Empty</div>
         </div>
+      </div>
       <div>
         <p class="title">Ring</p>
         <div class="variations">
@@ -115,7 +106,7 @@ button {
       <div>
         <p class="title">Diamond</p>
         <div class="variations">
-          <div id="view2" class="material " data-category="Diamond" data-index0="2" data-index1="1" data-index2="0" data-bg="0.jpg" style="background-color: #2100db;"></div>
+          <div id="view2" class="material" data-category="Diamond" data-index0="2" data-index1="1" data-index2="0" data-bg="0.jpg" style="background-color: #2100db;"></div>
           <div id="view2" class="material" data-category="Diamond" data-index0="1" data-index1="0" data-index2="1" data-bg="1.jpg" style="background-color: #049c0b;"></div>
           <div id="view2" class="material materialActive" data-category="Diamond" data-index0="0" data-index1="2" data-index2="2" data-bg="2.jpg" style="background-color: #db000d;"></div>
           <div id="view2" class="material" data-category="Diamond" data-index0="3" data-index1="3" data-index2="3" data-bg="1.jpg" style="background-color: white;"></div>
@@ -129,6 +120,9 @@ button {
           <div id="view3" class="material" data-category="Metal" data-index="2" style="background-color: #c2882b;"></div>
         </div>
       </div>
+    </div>
+    <div id="webgi-canvas-container">
+      <canvas id="webgi-canvas"></canvas>
     </div>
     <script type="module" src="/src/main.ts"></script>
   </body>
