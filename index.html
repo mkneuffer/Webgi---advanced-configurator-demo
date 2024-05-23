@@ -65,97 +65,105 @@
             background-color: black;
             color: white;
         }
+        .hidden {
+            display: none;
+        }
+        .view {
+            display: none;
+        }
+        .view.active {
+            display: block;
+        }
     </style>
 </head>
 <body>
     <div class="ui">
         <form id="selectionForm" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSeMhFzKsPSO2Kh-ObQrKtt-G51xOpaIMa0aFGeZWCNibkE3_Q/formResponse" method="POST">
-            <div>
+            <div id="viewBasket" class="view active">
                 <p class="title">Basket</p>
                 <div class="variations">
                     <div class="objectVariation objectActive" data-category="Basket" data-index="0">
                         <input type="radio" id="basket0" name="basket" value="Cushion Halo" checked>
-                        <label for="basket0">Cushion Halo</label>
+                        <label for="basket0" onclick="nextView()">Cushion Halo</label>
                     </div>
                     <div class="objectVariation" data-category="Basket" data-index="3">
                         <input type="radio" id="basket1" name="basket" value="Solitair">
-                        <label for="basket1">Solitair</label>
+                        <label for="basket1" onclick="nextView()">Solitair</label>
                     </div>
                     <div class="objectVariation" data-category="Basket" data-index="2">
                         <input type="radio" id="basket2" name="basket" value="Pear Halo">
-                        <label for="basket2">Pear Halo</label>
+                        <label for="basket2" onclick="nextView()">Pear Halo</label>
                     </div>
                     <div class="objectVariation" data-category="Basket" data-index="1">
                         <input type="radio" id="basket3" name="basket" value="Empty">
-                        <label for="basket3">Empty</label>
+                        <label for="basket3" onclick="nextView()">Empty</label>
                     </div>
                 </div>
             </div>
-            <div>
+            <div id="viewRing" class="view">
                 <p class="title">Ring</p>
                 <div class="variations">
                     <div class="objectVariation objectActive" data-category="Ring" data-index="0">
                         <input type="radio" id="ring0" name="ring" value="Alliance" checked>
-                        <label for="ring0">Alliance</label>
+                        <label for="ring0" onclick="nextView()">Alliance</label>
                     </div>
                     <div class="objectVariation" data-category="Ring" data-index="1">
                         <input type="radio" id="ring1" name="ring" value="Baguette">
-                        <label for="ring1">Baguette</label>
+                        <label for="ring1" onclick="nextView()">Baguette</label>
                     </div>
                     <div class="objectVariation" data-category="Ring" data-index="2">
                         <input type="radio" id="ring2" name="ring" value="Pave">
-                        <label for="ring2">Pave</label>
+                        <label for="ring2" onclick="nextView()">Pave</label>
                     </div>
                     <div class="objectVariation" data-category="Ring" data-index="3">
                         <input type="radio" id="ring3" name="ring" value="Pave Side">
-                        <label for="ring3">Pave Side</label>
+                        <label for="ring3" onclick="nextView()">Pave Side</label>
                     </div>
                     <div class="objectVariation" data-category="Ring" data-index="4">
                         <input type="radio" id="ring4" name="ring" value="Soli">
-                        <label for="ring4">Soli</label>
+                        <label for="ring4" onclick="nextView()">Soli</label>
                     </div>
                 </div>
             </div>
-            <div>
+            <div id="viewDiamond" class="view">
                 <p class="title">Diamond</p>
                 <div class="variations">
                     <div class="material" data-category="Diamond" data-index0="2" data-index1="1" data-index2="0" data-bg="0.jpg" style="background-color: #2100db;">
                         <input type="radio" id="diamond0" name="diamond" value="Diamond1">
-                        <label for="diamond0" style="background-color: #2100db;">&nbsp;</label>
+                        <label for="diamond0" style="background-color: #2100db;" onclick="nextView()">&nbsp;</label>
                     </div>
                     <div class="material" data-category="Diamond" data-index0="1" data-index1="0" data-index2="1" data-bg="1.jpg" style="background-color: #049c0b;">
                         <input type="radio" id="diamond1" name="diamond" value="Diamond2">
-                        <label for="diamond1" style="background-color: #049c0b;">&nbsp;</label>
+                        <label for="diamond1" style="background-color: #049c0b;" onclick="nextView()">&nbsp;</label>
                     </div>
                     <div class="material materialActive" data-category="Diamond" data-index0="0" data-index1="2" data-index2="2" data-bg="2.jpg" style="background-color: #db000d;">
                         <input type="radio" id="diamond2" name="diamond" value="Diamond3" checked>
-                        <label for="diamond2" style="background-color: #db000d;">&nbsp;</label>
+                        <label for="diamond2" style="background-color: #db000d;" onclick="nextView()">&nbsp;</label>
                     </div>
                     <div class="material" data-category="Diamond" data-index0="3" data-index1="3" data-index2="3" data-bg="1.jpg" style="background-color: white;">
                         <input type="radio" id="diamond3" name="diamond" value="Diamond4">
-                        <label for="diamond3" style="background-color: white;">&nbsp;</label>
+                        <label for="diamond3" style="background-color: white;" onclick="nextView()">&nbsp;</label>
                     </div>
                 </div>
             </div>
-            <div>
+            <div id="viewMetal" class="view">
                 <p class="title">Metal</p>
                 <div class="variations">
                     <div class="material" data-category="Metal" data-index="0" style="background-color: #aa6e61;">
                         <input type="radio" id="metal0" name="metal" value="Metal1">
-                        <label for="metal0" style="background-color: #aa6e61;">&nbsp;</label>
+                        <label for="metal0" style="background-color: #aa6e61;" onclick="nextView()">&nbsp;</label>
                     </div>
                     <div class="material materialActive" data-category="Metal" data-index="1" style="background-color: white;">
                         <input type="radio" id="metal1" name="metal" value="Metal2" checked>
-                        <label for="metal1" style="background-color: white;">&nbsp;</label>
+                        <label for="metal1" style="background-color: white;" onclick="nextView()">&nbsp;</label>
                     </div>
                     <div class="material" data-category="Metal" data-index="2" style="background-color: #c2882b;">
                         <input type="radio" id="metal2" name="metal" value="Metal3">
-                        <label for="metal2" style="background-color: #c2882b;">&nbsp;</label>
+                        <label for="metal2" style="background-color: #c2882b;" onclick="submitForm()">&nbsp;</label>
                     </div>
                 </div>
             </div>
             <input type="hidden" id="combinedAnswers" name="entry.1386704910" value="">
-            <button type="button" onclick="submitForm()">Submit</button>
         </form>
     </div>
     <div id="webgi-canvas-container">
@@ -163,28 +171,28 @@
     </div>
     <script type="module" src="/src/main.ts"></script>
     <script>
+        function nextView() {
+            const activeView = document.querySelector('.view.active');
+            const nextView = activeView.nextElementSibling;
+            if (nextView && nextView.classList.contains('view')) {
+                activeView.classList.remove('active');
+                nextView.classList.add('active');
+            }
+        }
+
         function submitForm() {
-            const basket = document.querySelector('input[name="basket"]:checked');
-            const ring = document.querySelector('input[name="ring"]:checked');
-            const diamond = document.querySelector('input[name="diamond"]:checked');
-            const metal = document.querySelector('input[name="metal"]:checked');
-
-            const answers = [basket, ring, diamond, metal].filter(answer => answer !== null).map(answer => answer.value);
-            const combinedAnswers = answers.join(", ");
-            document.getElementById('combinedAnswers').value = combinedAnswers;
-
             const form = document.getElementById('selectionForm');
             const formData = new FormData(form);
+            const combinedAnswers = [...formData.entries()].map(entry => entry[1]).join(", ");
+            document.getElementById('combinedAnswers').value = combinedAnswers;
 
             // Submit the form data to Google Forms
             fetch(form.action, {
                 method: "POST",
                 body: formData
             }).then(response => {
-                // Handle response if needed
                 console.log("Form submitted successfully");
             }).catch(error => {
-                // Handle errors if any
                 console.error("Error submitting form:", error);
             });
 
