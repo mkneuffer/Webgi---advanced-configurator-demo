@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="/logo.png" />
 
@@ -8,122 +8,189 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite + TS</title>
     <style>
-      body,
-      html {
-        margin: 0;
-        padding: 0;
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: row;
-      }
-      #webgi-canvas-container {
-        width: 50vw;
-        height: 100vh;
-        position: fixed;
-        right: 0;
-        top: 0;
-      }
-      #webgi-canvas {
-        width: 100%;
-        height: 100%;
-      }
-      .ui {
-        width: 50vw;
-        height: 100vh;
-        background-color: white;
-        padding: 15px;
-        border-radius: 20px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-        display: flex;
-        flex-direction: column;
-        font-family: sans-serif;
-      }
-      button {
-        margin: 5px;
-      }
-      .title {
-        font-size: 15px;
-        font-weight: bold;
-        margin-bottom: 10px;
-      }
-      .variations {
-        display: flex;
-        flex-direction: row;
-        gap: 10px;
-      }
-      .objectVariation {
-        border: 1px solid black;
-        padding: 6px;
-        border-radius: 8px;
-        font-size: 13px;
-        cursor: pointer;
-        transition: all 0.2s ease-in-out;
-      }
-      .objectVariation:hover {
-        background-color: black;
-        color: white;
-      }
-      .objectActive {
-        background-color: black;
-        color: white;
-      }
-      .materialActive {
-        border: 2px solid black !important;
-      }
-      .material {
-        padding: 15px;
-        border-radius: 100%;
-        border: 2px solid rgb(211, 211, 211);
-        cursor: pointer;
-      }
-      .material:hover {
-        border: 2px solid black;
-      }
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: row;
+        }
+        #webgi-canvas-container {
+            width: 30vw;
+            height: 100vh;
+            position: fixed;
+            right: 0;
+            top: 0;
+        }
+        #webgi-canvas {
+            width: 100%;
+            height: 100%;
+        }
+        .ui {
+            width: 70vw;
+            height: 100vh;
+            background-color: white;
+            padding: 15px;
+            border-radius: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            font-family: sans-serif;
+        }
+        .title {
+            font-size: 15px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .variations {
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+        }
+        .objectVariation, .material {
+            border: 1px solid black;
+            padding: 6px;
+            border-radius: 8px;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+        }
+        .objectVariation:hover, .material:hover {
+            background-color: black;
+            color: white;
+        }
+        .objectActive, .materialActive {
+            background-color: black;
+            color: white;
+        }
     </style>
-  </head>
-  <body>
+</head>
+<body>
     <div class="ui">
-      <div>
-        <p class="title">Basket</p>
-        <div class="variations">
-          <div id="view1" class="objectVariation objectActive" data-category="Basket" data-index="0">Cushion Halo</div>
-          <div id="view1" class="objectVariation" data-category="Basket" data-index="3">Solitair</div>
-          <div id="view1" class="objectVariation" data-category="Basket" data-index="2">Pear Halo</div>
-          <div id="view1" class="objectVariation" data-category="Basket" data-index="1">Empty</div>
-        </div>
-      </div>
-      <div>
-        <p class="title">Ring</p>
-        <div class="variations">
-          <div id="view0" class="objectVariation objectActive" data-category="Ring" data-index="0">Alliance</div>
-          <div id="view0" class="objectVariation" data-category="Ring" data-index="1">Baguette</div>
-          <div id="view0" class="objectVariation" data-category="Ring" data-index="2">Pave</div>
-          <div id="view0" class="objectVariation" data-category="Ring" data-index="3">Pave Side</div>
-          <div id="view0" class="objectVariation" data-category="Ring" data-index="4">Soli</div>
-        </div>
-      </div>
-      <div>
-        <p class="title">Diamond</p>
-        <div class="variations">
-          <div id="view2" class="material" data-category="Diamond" data-index0="2" data-index1="1" data-index2="0" data-bg="0.jpg" style="background-color: #2100db;"></div>
-          <div id="view2" class="material" data-category="Diamond" data-index0="1" data-index1="0" data-index2="1" data-bg="1.jpg" style="background-color: #049c0b;"></div>
-          <div id="view2" class="material materialActive" data-category="Diamond" data-index0="0" data-index1="2" data-index2="2" data-bg="2.jpg" style="background-color: #db000d;"></div>
-          <div id="view2" class="material" data-category="Diamond" data-index0="3" data-index1="3" data-index2="3" data-bg="1.jpg" style="background-color: white;"></div>
-        </div>
-      </div>
-      <div>
-        <p class="title">Metal</p>
-        <div class="variations">
-          <div id="view3" class="material" data-category="Metal" data-index="0" style="background-color: #aa6e61;"></div>
-          <div id="view3" class="material materialActive" data-category="Metal" data-index="1" style="background-color: white;"></div>
-          <div id="view3" class="material" data-category="Metal" data-index="2" style="background-color: #c2882b;"></div>
-        </div>
-      </div>
+        <form id="selectionForm" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSeMhFzKsPSO2Kh-ObQrKtt-G51xOpaIMa0aFGeZWCNibkE3_Q/formResponse" method="POST">
+            <div>
+                <p class="title">Basket</p>
+                <div class="variations">
+                    <div class="objectVariation objectActive" data-category="Basket" data-index="0">
+                        <input type="radio" id="basket0" name="basket" value="Cushion Halo" checked>
+                        <label for="basket0">Cushion Halo</label>
+                    </div>
+                    <div class="objectVariation" data-category="Basket" data-index="3">
+                        <input type="radio" id="basket1" name="basket" value="Solitair">
+                        <label for="basket1">Solitair</label>
+                    </div>
+                    <div class="objectVariation" data-category="Basket" data-index="2">
+                        <input type="radio" id="basket2" name="basket" value="Pear Halo">
+                        <label for="basket2">Pear Halo</label>
+                    </div>
+                    <div class="objectVariation" data-category="Basket" data-index="1">
+                        <input type="radio" id="basket3" name="basket" value="Empty">
+                        <label for="basket3">Empty</label>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <p class="title">Ring</p>
+                <div class="variations">
+                    <div class="objectVariation objectActive" data-category="Ring" data-index="0">
+                        <input type="radio" id="ring0" name="ring" value="Alliance" checked>
+                        <label for="ring0">Alliance</label>
+                    </div>
+                    <div class="objectVariation" data-category="Ring" data-index="1">
+                        <input type="radio" id="ring1" name="ring" value="Baguette">
+                        <label for="ring1">Baguette</label>
+                    </div>
+                    <div class="objectVariation" data-category="Ring" data-index="2">
+                        <input type="radio" id="ring2" name="ring" value="Pave">
+                        <label for="ring2">Pave</label>
+                    </div>
+                    <div class="objectVariation" data-category="Ring" data-index="3">
+                        <input type="radio" id="ring3" name="ring" value="Pave Side">
+                        <label for="ring3">Pave Side</label>
+                    </div>
+                    <div class="objectVariation" data-category="Ring" data-index="4">
+                        <input type="radio" id="ring4" name="ring" value="Soli">
+                        <label for="ring4">Soli</label>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <p class="title">Diamond</p>
+                <div class="variations">
+                    <div class="material" data-category="Diamond" data-index0="2" data-index1="1" data-index2="0" data-bg="0.jpg" style="background-color: #2100db;">
+                        <input type="radio" id="diamond0" name="diamond" value="Diamond1">
+                        <label for="diamond0" style="background-color: #2100db;">&nbsp;</label>
+                    </div>
+                    <div class="material" data-category="Diamond" data-index0="1" data-index1="0" data-index2="1" data-bg="1.jpg" style="background-color: #049c0b;">
+                        <input type="radio" id="diamond1" name="diamond" value="Diamond2">
+                        <label for="diamond1" style="background-color: #049c0b;">&nbsp;</label>
+                    </div>
+                    <div class="material materialActive" data-category="Diamond" data-index0="0" data-index1="2" data-index2="2" data-bg="2.jpg" style="background-color: #db000d;">
+                        <input type="radio" id="diamond2" name="diamond" value="Diamond3" checked>
+                        <label for="diamond2" style="background-color: #db000d;">&nbsp;</label>
+                    </div>
+                    <div class="material" data-category="Diamond" data-index0="3" data-index1="3" data-index2="3" data-bg="1.jpg" style="background-color: white;">
+                        <input type="radio" id="diamond3" name="diamond" value="Diamond4">
+                        <label for="diamond3" style="background-color: white;">&nbsp;</label>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <p class="title">Metal</p>
+                <div class="variations">
+                    <div class="material" data-category="Metal" data-index="0" style="background-color: #aa6e61;">
+                        <input type="radio" id="metal0" name="metal" value="Metal1">
+                        <label for="metal0" style="background-color: #aa6e61;">&nbsp;</label>
+                    </div>
+                    <div class="material materialActive" data-category="Metal" data-index="1" style="background-color: white;">
+                        <input type="radio" id="metal1" name="metal" value="Metal2" checked>
+                        <label for="metal1" style="background-color: white;">&nbsp;</label>
+                    </div>
+                    <div class="material" data-category="Metal" data-index="2" style="background-color: #c2882b;">
+                        <input type="radio" id="metal2" name="metal" value="Metal3">
+                        <label for="metal2" style="background-color: #c2882b;">&nbsp;</label>
+                    </div>
+                </div>
+            </div>
+            <input type="hidden" id="combinedAnswers" name="entry.1386704910" value="">
+            <button type="button" onclick="submitForm()">Submit</button>
+        </form>
     </div>
     <div id="webgi-canvas-container">
-      <canvas id="webgi-canvas"></canvas>
+        <canvas id="webgi-canvas"></canvas>
     </div>
     <script type="module" src="/src/main.ts"></script>
-  </body>
+    <script>
+        function submitForm() {
+            const basket = document.querySelector('input[name="basket"]:checked');
+            const ring = document.querySelector('input[name="ring"]:checked');
+            const diamond = document.querySelector('input[name="diamond"]:checked');
+            const metal = document.querySelector('input[name="metal"]:checked');
+
+            const answers = [basket, ring, diamond, metal].filter(answer => answer !== null).map(answer => answer.value);
+            const combinedAnswers = answers.join(", ");
+            document.getElementById('combinedAnswers').value = combinedAnswers;
+
+            const form = document.getElementById('selectionForm');
+            const formData = new FormData(form);
+
+            // Submit the form data to Google Forms
+            fetch(form.action, {
+                method: "POST",
+                body: formData
+            }).then(response => {
+                // Handle response if needed
+                console.log("Form submitted successfully");
+            }).catch(error => {
+                // Handle errors if any
+                console.error("Error submitting form:", error);
+            });
+
+            // Redirect to YouTube
+            window.location.href = "https://www.youtube.com";
+        }
+    </script>
+</body>
 </html>
